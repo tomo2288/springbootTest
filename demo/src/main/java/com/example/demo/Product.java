@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Base64;
 import java.util.Date;
 
 @Entity
@@ -34,9 +36,10 @@ public class Product implements Serializable {
     private Integer productQuantity;
     private byte[] productImage;
     private String productDetail;
-    private Integer productBuyPerson;
+    @Column(name ="productBuyPerson")
+    private Integer productBuyPerson = 0;
+    @JsonFormat(pattern = "yyyy/MM/dd:mm:ss", timezone = "GMT+8")
     private Timestamp productDate;
-    @Column(name = "productStatus")
     private String productStatus;
 
 
@@ -56,5 +59,7 @@ public class Product implements Serializable {
         return buffer;
     }
 
-
+    public byte[] getBase64Image() {
+        return productImage;
+    }
 }

@@ -1,0 +1,24 @@
+.main_section {
+    background-color: white;
+}
+
+.aside_section {
+    background-color: #84C1FF;
+}
+
+button a{
+    color:black;
+    text-decoration:none;  
+}
+
+button a:hover{
+    color:white; 
+    text-decoration:underline;  
+}
+
+.dropdown-menu a.dropdown-item:hover{
+    color: black;
+    background-color: rgb(252, 252, 135);
+}
+
+

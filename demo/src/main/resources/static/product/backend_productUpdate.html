@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- 引入bootstrap套件CSS -->
+<link rel="stylesheet" href="/ski/css/bootstrap.css" />
+<link rel="stylesheet" href="/ski/css/root.css" />
+<link rel="stylesheet" href="/ski/css/Product/productAdd.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<title>商品後台修改</title>
+</head>
+<body>
+	<div class="main_section row mb-0">
+		<!-- 左側導航列 -->
+		<div class="col-2 p-0">
+			<!-- 連結按鈕群 -->
+			<div class="aside_section sidebar d-flex flex-column position-fixed vh-100">
+				<!-- 下拉選單內容設定範例 -->
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">下拉選單示意</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">最新消息管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">會員管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">滑雪地點管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">課程管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">討論區管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">商城管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item"
+							href="/ski/product/backend_productAdd.html">商品新增</a>
+						<a class="dropdown-item"
+							href="/ski/product/backend_productPut.html">商品管理</a>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<button class="btn btn-sm mt-3 fs-5" type="button"
+						data-bs-toggle="dropdown" data-bs-display="static"
+						aria-expanded="false">
+						<a href="#">客服管理</a>
+					</button>
+					<!-- 選單選項部分 -->
+					<ul class="dropdown-menu dropdown-menu-dark text-center w-100">
+						<a class="dropdown-item" href="#">選項文字</a>
+						<a class="dropdown-item" href="#">選項文字</a>
+					</ul>
+				</div>
+				<a href=""
+					class="rounded-0 list-group-item list-group-item-action mt-auto mb-4 fs-5 text-center border-end-0">登出</a>
+			</div>
+		</div>
+
+		<!-- 右側內容欄 -->
+		<div class="col-10 p-0">
+			<!-- 麵包屑 (路徑位置文字) -->
+			<ol class="breadcrumb mt-1 px-2">
+				<li class="breadcrumb-item">後臺系統</li>
+				<li class="breadcrumb-item"><a
+					href="/ski/product/backend_productPut.html">商品管理</a></li>
+				<li class="breadcrumb-item"><a href="#">商品修改</a></li>
+			</ol>
+			<!-- 主內容欄 -->
+			<div class="content_section vh-100 mx-3 my-1">
+				<hr />
+				<!-- 商品表單開始 -->
+				<form id="productForm" enctype="multipart/form-data">
+					<input type="hidden" id="productID" name="productID" value="">
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<label class="input-group-text" for="productClass">商品類別</label>
+								<select class="form-select" id="productClass">
+									<option value="滑雪用品">滑雪用品</option>
+									<option value="機能服飾">機能服飾</option>
+									<option value="鞋/襪">鞋/襪</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請選擇商品類別</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<span class="input-group-text" id="inputGroup-sizing-default">商品名稱</span>
+								<input type="text" class="form-control" id="productName"
+									aria-label="商品名稱" aria-describedby="inputGroup-sizing-default">
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請輸入商品名稱</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<span class="input-group-text" id="inputGroup-sizing-default">商品單價</span>
+								<input type="text" class="form-control" id="productPrice"
+									aria-label="商品單價" aria-describedby="inputGroup-sizing-default">
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請輸入商品單價</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<span class="input-group-text" id="inputGroup-sizing-default">商品數量</span>
+								<input type="text" class="form-control" id="productQuantity"
+									aria-label="商品數量" aria-describedby="inputGroup-sizing-default">
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請輸入商品數量</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<span class="input-group-text" id="inputGroup-sizing-default">上架日期</span>
+								<input type="text" class="form-control" id="productDate"
+									aria-label="上架日期" aria-describedby="inputGroup-sizing-default"
+									readonly>
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請輸入上架日期</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<label class="input-group-text" for="productStatus">商品狀態</label>
+								<select class="form-select" id="productStatus">
+									<option selected>請選擇商品狀態</option>
+									<option value="上架中">上架中</option>
+									<option value="下架中">下架中</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger">請選擇商品狀態</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="input-group">
+								<input type="file" class="form-control" id="productImage">
+								<!-- 隱藏的 img 標籤，用於顯示商品圖片 -->
+							</div>
+						</div>
+						<div class="col-8 align-self-center">
+							<div>商品圖片</div>
+							<img id="originalImage" name="originalImage" data-original-image="" style="height: 250px">
+						</div>
+						<!-- <div class="col-4 align-self-center"> -->
+						<!-- </div> -->
+						<div class="col-4 align-self-center text-danger">請上傳商品圖片</div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-8 align-self-center">
+							<div class="form-floating">
+								<textarea class="form-control"
+									placeholder="Leave a comment here" id="productDetail"
+									style="height: 200px"></textarea>
+								<label for="floatingTextarea2">商品說明</label>
+							</div>
+						</div>
+						<div class="col-4 align-self-center text-danger"
+							id="productDetailError">請輸入商品說明</div>
+					</div>
+
+					<div class="row mb-3 justify-content-center">
+						<input type="submit" class="btn btn-info col-3" value="商品修改">
+					</div>
+				</form>
+				<!-- 商品表單結束 -->
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- 引入bootstrap套件JS -->
+	<script src="/ski/js/bootstrap.bundle.js"></script>
+	<script src="/ski/js/Product/productUpdate.js"></script>
+</body>
+</html>

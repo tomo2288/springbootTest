@@ -1,0 +1,42 @@
+	.navbar{
+    background-color: #073642 !important
+} 
+
+.navbar-dark .navbar-nav .nav-link{
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: white;
+}
+
+.sidetool_group{
+    right : 10px;
+    bottom: 5px;
+}
+
+.sidetool_button {
+    background-color: rgb(254, 239, 105);
+}
+
+.sidetool_icon{
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.container{
+    /* 便於編輯(觀察)，完成後可刪除 */
+    border: 2px solid red;
+}
+
+.footer{
+    background-color: #073642 
+}
+
+.footer-link{
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+  

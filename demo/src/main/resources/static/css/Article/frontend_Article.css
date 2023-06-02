@@ -1,0 +1,92 @@
+.navbar{
+    background-color: #073642 !important
+} 
+
+.navbar-dark .navbar-nav .nav-link{
+    font-size: 18px;
+    /* font-weight: bold; */
+    color: white;
+}
+
+.sidetool_group{
+    right : 10px;
+    bottom: 5px;
+}
+
+.sidetool_button {
+    background-color: rgb(254, 239, 105);
+}
+
+.sidetool_icon{
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.container{
+    /* 便於編輯(觀察)，完成後可刪除 */
+    border: 2px solid red;
+}
+
+.footer{
+    background-color: #073642 
+}
+
+.footer-link{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* button部分 */
+.button {
+    border-radius: 50%; /* 使用50%的圆角半径 */
+    width: 75px;
+    height: 25px;
+}
+.button1 {
+    border-radius: 50%; /* 使用50%的圆角半径 */
+    width: 80px;
+    height: 30px;
+}
+.button2 {
+    border-radius: 50%; /* 使用50%的圆角半径 */
+    width: 80px;
+    height: 30px;
+}
+.a {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30;
+}
+.container_top_under{
+    padding:0;
+}
+.cotainer_top_under_right{
+    margin-left: 15%;
+}
+.cotainer_top_under_left{
+    margin-right: 20%;
+}
+#container{
+    padding: 0;
+}
+.container_under{
+    border: 1px solid red;
+    padding-bottom: 78.5%;
+    max-height: 775px;
+    overflow-y: auto; /* 因應溢出的文字讓視窗產生滾動條 */ 
+    
+}
+.container_article{
+    border: 1px solid red;
+    border-radius: 25%; 
+    width: 90%;
+    height: 50%;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- 引入bootstrap套件CSS -->
+<link rel="stylesheet" href="/ski/css/bootstrap.css" />
+<link rel="stylesheet" href="/ski/css/Product/frontend_shop.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<title>商城</title>
+</head>
+
+<body>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark border border-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"> <img
+				src="/ski/img/logo.png" alt="UI Kit" style="width: 50px" />
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+				aria-controls="navbarTogglerDemo03" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<ul class="navbar-nav ms-auto me-sm-2 mt-2 mt-lg-0">
+					<li class="nav-item active me-3"><a class="nav-link" href="#">Let's
+							go skiing</a></li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">滑雪地圖</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">教練</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">課程</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">討論區</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">聊天室</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="http://localhost:8080/ski/product/frontend_shop.html">商城</a>
+					</li>
+					<li class="nav-item me-3"><a class="nav-link" href="#">購物車</a>
+					</li>
+					<!-- 會員頭貼+姓名 -->
+					<li class="nav-item dropdown"><a class="nav-link" href="#"
+						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> <img
+							class="rounded-circle u-box-shadow-sm me-2" width="25"
+							height="25" src=" https://dummyimage.com/100/007bff/efefef"
+							alt="Htmlstream" /> 滑小雪 <i
+							class="fa fa-angle-down"></i>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">會員中心</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">登出</a>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<br />
+	<!-- 內容欄 -->
+	<div
+		class="main_section position-relative vh-100 d-flex justify-content-center mb-0">
+		<!-- 頁面內容置於此 -->
+		<div class="container overflow-scroll">
+			<!-- 分類按鈕 -->
+			<div>
+				<button id="allProductsButton" class="ProductClass">全部商品</button>
+				<button class="ProductClass">滑雪用品</button>
+				<button class="ProductClass">機能服飾</button>
+				<button class="ProductClass">鞋/襪</button>
+			</div>
+			<!-- 搜尋欄 -->
+			<div>
+				<input type="text" class="search-bar" placeholder="搜尋商品..." />
+				<button class="search">搜尋</button>
+			</div>
+			<!-- 商品展示 -->
+			<div class="container">
+				<div class="row" id="productContent"></div>
+				<!-- 商品由JavaScript動態生成 -->
+			</div>
+		</div>
+	</div>
+	<!-- 側邊工具列 -->
+	<div
+		class="sidetool_group position-absolute btn-toolbar flex-column mb-3"
+		role="toolbar" aria-label="Toolbar with button groups">
+		<!-- 聊天室 -->
+		<button type="button"
+			class="sidetool_button btn btn-outline-black mb-1">
+			<img class="sidetool_icon" src="/ski/img/chat.png" alt="#" />
+		</button>
+		<!-- 客服 -->
+		<button type="button"
+			class="sidetool_button btn btn-outline-black mb-1">
+			<img class="sidetool_icon" src="/ski/img/service.png" alt="#" />
+		</button>
+		<!-- 返回頂端 -->
+		<button type="button" id="return_top_button"
+			class="sidetool_button btn btn-outline-black mb-1">
+			<img class="sidetool_icon" src="/ski/img/up_arrow.png" alt="#" />
+		</button>
+	</div>
+	</div>
+	<br />
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-1 d-flex align-items-center">
+					<a class="navbar-brand" href="index.html"> <img
+						src="/ski/img/logo.png" style="width: 50px" />
+					</a>
+				</div>
+				<div class="col-7 d-flex align-items-center">
+					<ul class="list-unstyled mb-0" style="color: white">
+						<li style="font-size: 14px">Let's go skiing</li>
+						<li style="font-size: 14px">104台北市中山區南京東路三段219號5樓</li>
+					</ul>
+				</div>
+				<div class="col-2 d-flex justify-content-end align-items-center">
+					<ul class="list-unstyled mb-0">
+						<li><a href="#" class="footer-link">關於我們</a></li>
+					</ul>
+				</div>
+				<div class="col-2 d-flex justify-content-end align-items-center">
+					<ul class="list-unstyled mb-0">
+						<li><a href="#" class="footer-link">常見問題</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- 引入bootstrap套件JS -->
+<script src="/ski/js/Product/frontend_shop.js"></script>
+<script src="/ski/js/frontend_public.js"></script>
+<script src="/ski/js/bootstrap.bundle.js"></script>
+</html>
