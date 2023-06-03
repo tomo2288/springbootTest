@@ -15,13 +15,14 @@ import java.time.ZoneId;
 import java.util.Base64;
 import java.util.Date;
 
+
+
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@DynamicUpdate
 @Table(name = "Product")
 public class Product implements Serializable {
 
@@ -36,11 +37,10 @@ public class Product implements Serializable {
     private Integer productQuantity;
     private byte[] productImage;
     private String productDetail;
-    @Column(name ="productBuyPerson")
     private Integer productBuyPerson = 0;
-    @JsonFormat(pattern = "yyyy/MM/dd:mm:ss", timezone = "GMT+8")
     private Timestamp productDate;
     private String productStatus;
+
 
 
     @Override
@@ -58,8 +58,19 @@ public class Product implements Serializable {
         fis.close();
         return buffer;
     }
-
-    public byte[] getBase64Image() {
+    public byte[] getProductImage() {
+        if (productImage == null) {
+            return new byte[0]; // 返回空的 byte 数组
+        }
         return productImage;
     }
+
+    public String getProductImageBase64() {
+        if (productImage == null) {
+            return "default-image-base64"; // 默认的图片 Base64 字符串
+        }
+        return Base64.getEncoder().encodeToString(productImage);
+    }
+
+
 }

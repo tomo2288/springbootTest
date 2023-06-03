@@ -27,7 +27,7 @@ function createAndAttachModal(productDiv, uniqueModalId) {
 
 // Helper function to create product element
 function createProductElement(product) {
-    return fetch(`http://localhost:8080/ski/loadImage?productID=${product.productID}`)
+    return fetch(`http://localhost:8080/loadImage?productID=${product.productID}`)
         .then(response => response.json())
         .then(imageData => {
             const productDiv = document.createElement('div');
@@ -43,7 +43,7 @@ function createProductElement(product) {
 
             const productHtml = `
       	<div class="card text-center">
-        <a href="http://localhost:8080/ski/product/frontend_productDetail.html?productID=${product.productID}">
+        <a href="http://localhost:8080/product/frontend_productDetail.html?productID=${product.productID}">
         <img src="data:image/png;base64,${imageData.imageData}" alt="商品圖片" style="height: 100px">
          
           <div class="card-body">
@@ -69,7 +69,7 @@ function createProductElement(product) {
 
 
 function displayAllProducts() {
-	fetch('http://localhost:8080/ski/getAll')
+	fetch('http://localhost:8080/productsGetAll')
 		.then(response => response.json())
 		.then(data => {
 			const productContainer = document.getElementById('productContent');
@@ -89,7 +89,7 @@ function displayAllProducts() {
 }
 
 function searchProduct(searchTerm) {
-	var url = "http://localhost:8080/ski/productSelectByName?productName=" + searchTerm;
+	var url = "http://localhost:8080/productSelectByName?productName=" + searchTerm;
 
 	fetch(url)
 		.then(response => response.json())
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.addEventListener('click', () => {
 			const productClass = button.innerText.trim();
 
-			fetch(`http://localhost:8080/ski/productSelectByClass?productClass=${productClass}`)
+			fetch(`http://localhost:8080/productSelectByClass/${productClass}`)
 				.then(response => response.json())
 				.then(data => {
 					const productContainer = document.getElementById('productContent');

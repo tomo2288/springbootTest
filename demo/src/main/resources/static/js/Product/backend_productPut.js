@@ -1,4 +1,4 @@
-//頁面加載完成後執行
+// 頁面加載完成後執行
 document.addEventListener('DOMContentLoaded', function() {
   // 獲取商品數據並渲染表格
   fetchProducts();
@@ -19,13 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // 獲取商品數據並渲染表格
 function fetchProducts() {
   fetch('http://localhost:8080/productsGetAll')
-    .then(response => response.json())
-    .then(data => {
-      renderProducts(data);
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        renderProducts(data);
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
 }
 
 // 渲染商品表格
@@ -47,13 +49,11 @@ function renderProducts(products) {
     deleteButton.textContent = '刪除';
     deleteButton.dataset.productId = product.productID;
 
-    const base64Image = btoa(new Uint8Array(product.productImage).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-    const imageSrc = `data:image/png;base64,${base64Image}`;
+    // 直接使用從後端獲取的 base64 字串
+    const imageSrc = `data:image/png;base64,${product.productImage}`;
 
-    // 將日期格式轉換為 yyyy-MM-dd 格式
-    const date = new Date(product.productDate);
-    const formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-
+    const date = dayjs(product.productDate);
+    const formattedDate = date.format('YYYY-MM-DD');
     row.innerHTML = `
       <th scope="row">${product.productID}</th>
       <td class="col-2">
@@ -68,7 +68,7 @@ function renderProducts(products) {
     `;
 
     row.querySelector('td:nth-child(7)').appendChild(editButton);
-    row.querySelector('td:nth-child(8').appendChild(deleteButton);
+    row.querySelector('td:nth-child(8)').appendChild(deleteButton);
 
     tableBody.appendChild(row);
   });
@@ -76,21 +76,24 @@ function renderProducts(products) {
 
 // 跳轉到商品頁面
 function jumpupdatepage(productID) {
-  const url = `/ski/product/backend_productUpdate.html?id=${productID}`;
+  const url = `/product/backend_productUpdate.html?id=${productID}`;
   window.location.href = url;
 }
 
 // 刪除商品
 function deleteProduct(productID) {
-  fetch(`http://localhost:8080/ski/productDelete?productID=${productID}`, {
-    method: 'GET',
+  fetch(`http://localhost:8080/productDelete/${productID}`, {
+    method: 'DELETE',
   })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Product deleted successfully:', data);
-      fetchProducts(); // 重新獲取商品數據並渲染表格
-    })
-    .catch(error => {
-      console.error(error);
-    });
+      .then(response => {
+        if (response.ok) {
+          console.log('Product deleted successfully');
+          fetchProducts(); // 重新獲取商品數據並渲染表格
+        } else {
+          console.error('Failed to delete product');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
 }
